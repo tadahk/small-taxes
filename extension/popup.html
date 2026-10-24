@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>small taxes</title>
+<style>
+  :root { color-scheme: light dark; --fg: #222; --bg: #fafafa; --mute: #888; --line: #ddd; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #ddd; --bg: #1b1b1b; --mute: #888; --line: #333; } }
+  body { margin: 0; width: 270px; padding: 14px 16px; font: 13px/1.45 ui-monospace, Menlo, monospace; color: var(--fg); background: var(--bg); }
+  h1 { font-size: 13px; font-weight: 600; margin: 0 0 12px; }
+  section { border-top: 1px solid var(--line); padding: 10px 0; }
+  label.row { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .note { color: var(--mute); margin: 4px 0 0; }
+  input[type=number] { width: 48px; font: inherit; color: inherit; background: transparent; border: 1px solid var(--line); padding: 2px 4px; }
+  textarea { width: 100%; box-sizing: border-box; height: 92px; margin-top: 6px; font: inherit; font-size: 12px; color: inherit; background: transparent; border: 1px solid var(--line); padding: 4px; resize: vertical; }
+  details summary { cursor: pointer; color: var(--mute); }
+</style>
+</head>
+<body>
+<h1>small taxes</h1>
+
+<section>
+  <label class="row">doomscroll tax <input type="checkbox" id="scrollOn"></label>
+  <p class="note">feeds scroll slower the longer you scroll. closing the tab resets it.</p>
+  <details>
+    <summary>sites</summary>
+    <textarea id="sites" spellcheck="false"></textarea>
+  </details>
+</section>
+
+<section>
+  <label class="row">tab tax <input type="checkbox" id="tabOn"></label>
+  <p class="note">every tab past <input type="number" id="tabLimit" min="1" max="200"> greys your pages a little.</p>
+  <p class="note" id="status"></p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>
